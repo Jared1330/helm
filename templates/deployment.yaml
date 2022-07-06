@@ -1,21 +1,21 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-deployment
+  name: frontend
   labels:
-    app : {{ .Release.Name }}-deployment
+    app: frontend
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      project: {{ .Release.Name }}
+      app: frontend
   template:
     metadata:
       labels:
-        project: {{ .Release.Name }}   # Service will look for those PODS Labels!!!
+        app: frontend
     spec:
       containers:
-        - name : {{ .Release.Name }}-web
-          image: {{ .Values.container.image }}
-          ports:
-            - containerPort: 80
+      - name: k8sphp
+        image: {{ .Values.container.image }}
+        ports:
+        - containerPort: 80
