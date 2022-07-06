@@ -1,6 +1,6 @@
-# Default Values for my Helm Chart
+# Default Values for Helm Chart
 
 container:
-  image: adv4000/k8sphp:latest
+  image: ruslan121/k8sphp:1.0
 
-replicaCount: 2
+replicaCount: 3
